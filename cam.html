@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Camera Video</title>
+</head>
+<body>
+  <video id="video" width="640" height="480" autoplay>
+</video>
+
+  <script>
+    const video = document.getElementById('video');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(error => {
+        console.error('Error accessing camera:', error);
+      });
+  </script>
+</body>
+</html>
